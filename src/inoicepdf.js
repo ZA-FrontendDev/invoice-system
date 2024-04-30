@@ -250,7 +250,16 @@ export const InvoicePdfDocument = (props) => {
             </View>
             <View style={styles.itemRow}>
               <View style={styles.itemText}>
-                <Text style={styles.body2}>{invoice.invoice_detail}</Text>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 400,
+                    marginBottom: 5,
+                    lineHeight: 2,
+                  }}
+                >
+                  {invoice.invoice_detail}
+                </Text>
               </View>
               <View style={styles.itemNumber}>
                 <Text style={[styles.body2, styles.alignRight]}>
