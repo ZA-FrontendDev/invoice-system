@@ -196,7 +196,6 @@ export const InvoicePdfDocument = (props) => {
           <View style={styles.header}>
             <View>
               <Image source="dark-logo.png" style={styles.brand} />
-              {/* <Text style={styles.body2}>www.tutionhighway.com</Text> */}
             </View>
             <View>
               <Text style={[styles.h2, styles.uppercase]}>invoice</Text>
@@ -240,39 +239,25 @@ export const InvoicePdfDocument = (props) => {
               </View>
             </View>
           </View>
-
           <View style={styles.items}>
             <View style={styles.headerRow}>
               <View style={styles.itemText}>
                 <Text style={styles.h6}>{invoice.package_title}</Text>
               </View>
-
               <View style={styles.itemNumber}>
                 <Text style={[styles.h6, styles.alignRight]}>Amount</Text>
               </View>
             </View>
-
             <View style={styles.itemRow}>
               <View style={styles.itemText}>
-                <Text
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 400,
-                    marginBottom: 5,
-                    lineHeight: 2,
-                  }}
-                >
-                  {invoice.invoice_detail}
-                </Text>
+                <Text style={styles.body2}>{invoice.invoice_detail}</Text>
               </View>
-
               <View style={styles.itemNumber}>
                 <Text style={[styles.body2, styles.alignRight]}>
-                  {invoice.total}
+                  {Number(invoice.total).toFixed(2)}
                 </Text>
               </View>
             </View>
-
             <View style={styles.itemRow}>
               <View style={styles.rowGap} />
               <View style={styles.itemNumber}>
@@ -280,11 +265,10 @@ export const InvoicePdfDocument = (props) => {
               </View>
               <View style={styles.itemNumber}>
                 <Text style={[styles.body2, styles.alignRight]}>
-                  {invoice.total.toFixed(2)}
+                  {Number(invoice.total).toFixed(2)}
                 </Text>
               </View>
             </View>
-
             <View style={styles.summaryView}>
               {invoice.discount !== 0 && (
                 <>
@@ -295,11 +279,10 @@ export const InvoicePdfDocument = (props) => {
                     </View>
                     <View style={styles.summaryValue}>
                       <Text style={[styles.body2, styles.alignRight]}>
-                        - {invoice?.discount.toFixed(2)}
+                        - {Number(invoice.discount).toFixed(2)}
                       </Text>
                     </View>
                   </View>
-
                   <View style={styles.summaryRow}>
                     <View style={styles.rowGap} />
                     <View style={styles.itemNumber}>
@@ -307,7 +290,9 @@ export const InvoicePdfDocument = (props) => {
                     </View>
                     <View style={styles.itemNumber}>
                       <Text style={[styles.body2, styles.alignRight]}>
-                        {formatSubTotal(invoice.total - invoice.discount)}
+                        {formatSubTotal(
+                          Number(invoice.total) - Number(invoice.discount)
+                        )}
                       </Text>
                     </View>
                   </View>
@@ -342,7 +327,7 @@ export const InvoicePdfDocument = (props) => {
                     fontSize: 14,
                     fontWeight: 600,
                     lineHeight: 1.7,
-                    color: "#1a2e5c",
+                    color: "#1A2E5C",
                   }}
                 >
                   Terms & Conditions
@@ -368,12 +353,11 @@ export const InvoicePdfDocument = (props) => {
                     fontSize: 14,
                     fontWeight: 600,
                     lineHeight: 1.7,
-                    color: "#1a2e5c",
+                    color: "#1A2E5C",
                   }}
                 >
                   Official Details
                 </Text>
-
                 <View
                   style={{
                     display: "flex",
@@ -386,7 +370,6 @@ export const InvoicePdfDocument = (props) => {
                   />
                   <Text style={styles.body2}>+971563511722</Text>
                 </View>
-
                 <View
                   style={{
                     display: "flex",
@@ -397,10 +380,8 @@ export const InvoicePdfDocument = (props) => {
                     source="email.png"
                     style={{ width: 12, height: 12, marginRight: 3 }}
                   />
-
                   <Text style={styles.body2}>info@teknweb.com</Text>
                 </View>
-
                 <View
                   style={{
                     display: "flex",
@@ -413,7 +394,6 @@ export const InvoicePdfDocument = (props) => {
                   />
                   <Text style={styles.body2}>www.teknweb.com</Text>
                 </View>
-
                 <View
                   style={{
                     display: "flex",
@@ -439,7 +419,7 @@ export const InvoicePdfDocument = (props) => {
                     fontSize: 14,
                     fontWeight: 600,
                     lineHeight: 1.7,
-                    color: "#1a2e5c",
+                    color: "#1A2E5C",
                   }}
                 >
                   Account Details

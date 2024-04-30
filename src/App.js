@@ -13,16 +13,14 @@ import {
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useFormik } from "formik";
 import { InvoicePdfDocument } from "./inoicepdf";
-
+import { useEffect } from "react";
 let today = new Date();
-
 let formattedDate =
   today.getFullYear() +
   "-" +
   String(today.getMonth() + 1).padStart(2, "0") +
   "-" +
   String(today.getDate()).padStart(2, "0");
-
 export const InvoiceInitialValues = {
   invoice_to: "",
   invoice_number: "",
@@ -31,17 +29,15 @@ export const InvoiceInitialValues = {
   billing_month: "",
   package_title: "",
   invoice_detail: "",
-  total: 0,
-  discount: 0,
+  total: "",
+  discount: "",
 };
-
 function App() {
   const formik = useFormik({
     initialValues: InvoiceInitialValues,
     enableReinitialize: true,
     onSubmit: async (values, helpers) => {},
   });
-
   return (
     <>
       <Box
@@ -81,7 +77,6 @@ function App() {
                           value={formik.values.invoice_number}
                           onChange={formik.handleChange}
                         />
-
                         <TextField
                           label="Date"
                           name="date_of_issue"
@@ -107,12 +102,10 @@ function App() {
                         />
                       </Stack>
                     </Grid>
-
                     {/* Invoice Fields */}
                     <Grid item xs={12}>
                       <Typography variant="h6">Invoice Information</Typography>
                     </Grid>
-
                     <Grid item xs={12} sm={6}>
                       <Stack direction="column" spacing={3}>
                         <TextField
@@ -133,28 +126,25 @@ function App() {
                         />
                       </Stack>
                     </Grid>
-
                     <Grid item xs={12} sm={6}>
                       <Stack direction="column" spacing={3}>
                         <TextField
                           label="Total"
                           name="total"
-                          type="number"
                           fullWidth
+                          InputLabelProps={{ shrink: true }}
                           value={formik.values.total}
                           onChange={formik.handleChange}
                         />
                         <TextField
                           label="Discount"
                           name="discount"
-                          type="number"
                           fullWidth
                           value={formik.values.discount}
                           onChange={formik.handleChange}
                         />
                       </Stack>
                     </Grid>
-
                     <Grid
                       item
                       xs={12}
@@ -182,5 +172,4 @@ function App() {
     </>
   );
 }
-
 export default App;
