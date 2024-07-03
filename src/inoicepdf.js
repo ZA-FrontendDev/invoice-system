@@ -377,7 +377,7 @@ export const InvoicePdfDocument = (props) => {
                     source="phone.png"
                     style={{ width: 12, height: 12, marginRight: 3 }}
                   />
-                  <Text style={styles.body2}>+971563511722</Text>
+                  <Text style={styles.body2}>+92 3232707207</Text>
                 </View>
                 <View
                   style={{
