@@ -66,7 +66,7 @@ export const InvoiceList = () => {
       <Container maxWidth="xl">
         <Stack spacing={{ xs: 3, lg: 4 }}>
           <Stack direction="row" justifyContent="space-between" spacing={4}>
-            <Typography variant="h4">{"Invoice's"}</Typography>
+            <Typography variant="h4">{"Invoice's List"}</Typography>
 
             <Button
               onClick={() => {

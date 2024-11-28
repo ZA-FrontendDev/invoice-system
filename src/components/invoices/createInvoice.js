@@ -152,11 +152,20 @@ const CreateInvoice = ({ modal, onCancel, onConfirm }) => {
               fileName="invoice.pdf"
               style={{ textDecoration: "none" }}
             >
-              <Button color="primary" variant="contained">
+              <Button
+                color="primary"
+                variant="contained"
+                sx={{ backgroundColor: "#1A4870", marginRight: 10 }}
+              >
                 Download Invoice
               </Button>
             </PDFDownloadLink>
-            <Button type="submit" color="primary" variant="contained">
+            <Button
+              type="submit"
+              color="primary"
+              variant="contained"
+              sx={{ backgroundColor: "#1A4870" }}
+            >
               Save Invoice
             </Button>
           </Grid>

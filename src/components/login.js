@@ -21,7 +21,7 @@ export default function LoginPage() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); // Use navigate for redirection
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -33,22 +33,19 @@ export default function LoginPage() {
     setEmailError("");
     setPasswordError("");
 
-    // Validate email format
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address");
       return;
     }
 
-    // Validate password length
     if (password.length < 8) {
       setPasswordError("Password must be at least 8 characters long");
       return;
     }
 
-    // Check if email and password match the specific credentials
     if (email === "zain@gmail.com" && password === "zainahsan.123") {
       localStorage.setItem("isLoggedIn", true); // Store login status
-      navigate("/invoices"); // Redirect to the InvoiceList page
+      navigate("/invoices");
     } else {
       setEmailError("Invalid email or password");
     }
@@ -59,32 +56,29 @@ export default function LoginPage() {
   return (
     <Box sx={{ height: "100vh", width: "100vw" }}>
       {" "}
-      {/* Full viewport width and height */}
       <CssBaseline />
       <Grid container sx={{ height: "100%" }}>
-        {/* Left Column - Blue Background */}
         <Grid
           item
           xs={12}
           md={7}
           sx={{
-            backgroundColor: "#1A4870", // Blue background
+            backgroundColor: "#1A4870",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            color: "#fff", // White text
+            color: "#fff",
             padding: 4,
-            height: "100vh", // Full height
+            height: "100vh",
           }}
         >
-          <Typography variant="h3" sx={{ mb: 2 }}>
-            Welcome to MyApp
+          <Typography textAlign={"center"} variant="h3" sx={{ mb: 2 }}>
+            Welcome to TeknWeb <br></br>Invoice Creator
           </Typography>
           <Typography variant="h6" sx={{ mb: 4 }}>
-            Manage your account efficiently and securely.
+            Manage your Invoice here and see the invoice list.
           </Typography>
-          {/* Add your image here */}
           <Box
             component="img"
             src="/image512.png"
@@ -93,7 +87,6 @@ export default function LoginPage() {
           />
         </Grid>
 
-        {/* Right Column - Login Form */}
         <Grid
           item
           xs={12}
