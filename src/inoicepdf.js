@@ -434,10 +434,10 @@ export const InvoicePdfDocument = (props) => {
                   Account Details
                 </Text>
                 {/* <Image style={styles.qrimage} source="invoice-top.png" /> */}
-                <Text style={styles.body2}>MUHAMMAD ZAIN AHSAN</Text>
+                <Text style={styles.body2}>SHEERAZ AHMED</Text>
                 <Text style={styles.body2}>Meezan Bank-DHA PHASE II EXT</Text>
-                <Text style={styles.body2}>Account Number: 01150105470216</Text>
-                <Text style={styles.body2}>IBAN: PK02MEZN0001150105470216</Text>
+                <Text style={styles.body2}>Account Number: 01150104253602</Text>
+                <Text style={styles.body2}>IBAN: PK15MEZN0001150104253602</Text>
               </View>
             </View>
           </View>
