@@ -184,7 +184,7 @@
 
 // export default App;
 
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -201,33 +201,27 @@ const App = () => {
   const loginTime = localStorage.getItem("loginTime");
 
   // Function to logout the user
-  const logout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("loginTime");
-    navigate("/"); // Redirect to login page
-  };
+  const logout = useCallback(() => {
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("loginTime");
+  navigate("/");
+}, [navigate]);
 
-  // Effect to check for automatic logout after 1 hour
   useEffect(() => {
-    if (isLoggedIn && loginTime) {
-      const currentTime = Date.now();
-      const timeElapsed = currentTime - parseInt(loginTime, 10);
+  if (isLoggedIn && loginTime) {
+    const currentTime = Date.now();
+    const timeElapsed = currentTime - parseInt(loginTime, 10);
 
-      // Check if time elapsed is more than 1 hour (3600000 ms)
-      if (timeElapsed > 3600000) {
-        logout(); // Automatically logout after 1 hour
-      } else {
-        // Set timeout for remaining time until 1 hour
-        const remainingTime = 3600000 - timeElapsed;
-        const timeoutId = setTimeout(() => {
-          logout();
-        }, remainingTime);
+    if (timeElapsed > 3600000) {
+      logout();
+    } else {
+      const remainingTime = 3600000 - timeElapsed;
+      const timeoutId = setTimeout(logout, remainingTime);
 
-        // Clear timeout on component unmount
-        return () => clearTimeout(timeoutId);
-      }
+      return () => clearTimeout(timeoutId);
     }
-  }, [isLoggedIn, loginTime]);
+  }
+}, [isLoggedIn, loginTime, logout]);
 
   return (
     <Routes>
