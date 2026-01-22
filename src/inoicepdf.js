@@ -377,7 +377,7 @@ export const InvoicePdfDocument = (props) => {
                     source="phone.png"
                     style={{ width: 12, height: 12, marginRight: 3 }}
                   />
-                  <Text style={styles.body2}>+92 3232707207</Text>
+                  <Text style={styles.body2}>+92 332 2080495</Text>
                 </View>
                 <View
                   style={{
@@ -413,7 +413,7 @@ export const InvoicePdfDocument = (props) => {
                     source="location.png"
                     style={{ width: 12, height: 12, marginRight: 3 }}
                   />
-                  <Text style={styles.body2}>R 17 Murtaza Town, Airport</Text>
+                  <Text style={styles.body2}>House No-L3 murtaza Town, Malir halt</Text>
                 </View>
               </View>
               <View
@@ -435,9 +435,8 @@ export const InvoicePdfDocument = (props) => {
                 </Text>
                 {/* <Image style={styles.qrimage} source="invoice-top.png" /> */}
                 <Text style={styles.body2}>SHEERAZ AHMED</Text>
-                <Text style={styles.body2}>Meezan Bank-DHA PHASE II EXT</Text>
-                <Text style={styles.body2}>Account Number: 01150104253602</Text>
-                <Text style={styles.body2}>IBAN: PK15MEZN0001150104253602</Text>
+                <Text style={styles.body2}>Bank Al Habib Limited</Text>
+                <Text style={styles.body2}>Account Number: 50230081005625016</Text>
               </View>
             </View>
           </View>
